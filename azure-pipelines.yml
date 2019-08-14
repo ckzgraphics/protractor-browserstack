@@ -6,6 +6,9 @@
 trigger:
 - master
 
+variables:
+  browserstackUser: $(BROWSERSTACK_USERNAME)
+  browserstackKey: $(BROWSERSTACK_ACCESS_KEY)
 
 steps:
 - task: NodeTool@0
@@ -13,8 +16,11 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
+- task: BrowserStackConfig@0
+  inputs:
+    BrowserStackServiceEndPoint: 'Bstack'
 - script: |
     npm install
     npm run single
   displayName: 'npm install and build'
-
+- task: BrowserStackResults@0
