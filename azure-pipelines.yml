@@ -16,7 +16,7 @@ steps:
     versionSpec: '10.x'
   displayName: 'Install Node.js'
 
-- task: BrowserStackConfig@0
+- task: BrowserStackConfig@1
   inputs:
     BrowserStackServiceEndPoint: 'Bstack'
 
@@ -24,4 +24,4 @@ steps:
     npm install
     npm run parallel
 
-- task: BrowserStackResults@0
+- task: BrowserStackResults@1
