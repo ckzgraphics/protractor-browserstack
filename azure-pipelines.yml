@@ -18,8 +18,10 @@ steps:
 
 - task: BrowserStackConfig@0
   inputs:
-    BrowserStackServiceEndPoint: 'Bstack New'
+    BrowserStackServiceEndPoint: 'Bstack'
+
 - script: |
     npm install
     npm run parallel
+
 - task: BrowserStackResults@0
